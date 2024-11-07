@@ -1,5 +1,4 @@
 
-. /lib/functions/leds.sh
 . /lib/functions/uci-defaults.sh
 
 board_config_update
@@ -7,6 +6,22 @@ board_config_update
 board=$(board_name)
 
 case "$board" in
+redmi,ax5|\
+xiaomi,ax1800)
+	ucidef_set_led_netdev "internet" "Internet" "blue:network" "wan"
+	;;
+cmiot,ax18|\
+zn,m2)
+	ucidef_set_led_netdev "wan" "WAN" "m2:blue:wan" "wan"
+	ucidef_set_led_netdev "wlan2g" "WLAN2G" "m2:blue:wlan2g" "phy1-ap0" "tx rx"
+	ucidef_set_led_netdev "wlan5g" "WLAN5G" "m2:blue:wlan5g" "phy0-ap0" "tx rx"
+	ucidef_set_led_netdev "lan" "LAN" "m2:blue:lan" "br-lan"
+	;;
+redmi,ax5-jdcloud|\
+jdcloud,ax1800-pro|\
+jdcloud,ax6600)
+	ucidef_set_led_netdev "wan" "WAN" "green:wan" "wan" "link"
+	;;
 yuncore,fap650)
 	ucidef_set_led_netdev "wlan5ghz" "WLAN 5GHz LED" "blue:wlan-5ghz" "wlan0" "tx rx"
 	ucidef_set_led_netdev "wlan2ghz" "WLAN 2.4GHz LED" "green:wlan-2ghz" "wlan1" "tx rx"
