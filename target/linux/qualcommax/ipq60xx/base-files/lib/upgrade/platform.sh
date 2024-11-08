@@ -40,7 +40,7 @@ platform_do_upgrade() {
 	cmiot,ax18|\
 	glinet,gl-ax1800|\
 	glinet,gl-axt1800|\
-	qihoo,v6|\
+	qihoo,360v6|\
 	redmi,ax5|\
 	xiaomi,ax1800|\
 	zn,m2|\
@@ -59,8 +59,8 @@ platform_do_upgrade() {
 		fw_setenv owrt_slotactive $((1 - active))
 		nand_do_upgrade "$1"
 		;;
-	jdcloud,ax1800-pro|\
-	jdcloud,ax6600|\
+	jdcloud,re-ss-01|\
+	jdcloud,re-cs-02|\
 	redmi,ax5-jdcloud)
 		kernelname="0:HLOS"
 		rootfsname="rootfs"

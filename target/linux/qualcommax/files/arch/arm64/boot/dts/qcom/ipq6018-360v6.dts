@@ -12,8 +12,8 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
-	model = "Qihoo 360 V6";
-	compatible = "qihoo,v6", "qcom,ipq6018-cp03", "qcom,ipq6018";
+	model = "Qihoo 360V6";
+	compatible = "qihoo,360v6", "qcom,ipq6018-cp03", "qcom,ipq6018";
 	qcom,msm-id = <0x192 0x0>;
 
 	aliases {
@@ -101,10 +101,10 @@
 		};
 
 		mux_2 {
-            pins = "gpio75";
-            function = "gpio";
-            bias-pull-up;
-        };
+			pins = "gpio75";
+			function = "gpio";
+			bias-pull-up;
+		};
 	};
 
 	leds_pins: leds_pins {

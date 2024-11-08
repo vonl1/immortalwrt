@@ -48,15 +48,15 @@ case "${board_name}" in
 	cmiot,ax18|\
 	glinet,gl-ax1800|\
 	glinet,gl-axt1800|\
-	jdcloud,ax1800-pro|\
-	qihoo,v6|\
+	jdcloud,re-ss-01|\
+	qihoo,360v6|\
 	redmi,ax5|\
 	redmi,ax5-jdcloud|\
 	xiaomi,ax1800|\
 	zn,m2)
 		dual_band_wifi_cfg
 	;;
-	jdcloud,ax6600)
+	jdcloud,re-cs-02)
 		tri_band_wifi_cfg
 	;;
 	*)

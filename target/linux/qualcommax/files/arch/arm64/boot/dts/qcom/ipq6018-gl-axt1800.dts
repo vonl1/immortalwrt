@@ -15,11 +15,11 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include "ipq6018-gl-ax1800.dtsi"
+#include "ipq6018-glinet.dtsi"
 
 / {
 	model = "GL Technologies, Inc. AXT1800";
-	compatible = "glinet,gl-axt1800", "qcom,ipq6018", "qcom,ipq6018-cp03";
+	compatible = "glinet,gl-axt1800", "qcom,ipq6018-cp03", "qcom,ipq6018";
 
 	aliases {
 		sdhc0 = &sdhc_1;

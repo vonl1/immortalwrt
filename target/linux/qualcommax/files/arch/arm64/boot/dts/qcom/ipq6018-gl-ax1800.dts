@@ -15,11 +15,11 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include "ipq6018-gl-ax1800.dtsi"
+#include "ipq6018-glinet.dtsi"
 
 / {
 	model = "GL Technologies, Inc. AX1800";
-	compatible = "glinet,gl-ax1800", "qcom,ipq6018", "qcom,ipq6018-cp03";
+	compatible = "glinet,gl-ax1800", "qcom,ipq6018-cp03", "qcom,ipq6018";
 
 	aliases {
 		ethernet3 = &dp4;
@@ -29,12 +29,12 @@
 
 &ethernet_0 {
 	qca8075_3: ethernet-phy@3 {
-        compatible = "ethernet-phy-ieee802.3-c22";
+		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <3>;
 	};
-	
+
 	qca8075_4: ethernet-phy@4 {
-        compatible = "ethernet-phy-ieee802.3-c22";
+		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <4>;
 	};
 };

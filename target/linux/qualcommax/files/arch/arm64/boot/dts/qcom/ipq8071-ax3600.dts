@@ -3,7 +3,7 @@
 
 /dts-v1/;
 
-#include "ipq8071-ax3600.dtsi"
+#include "ipq8071-xiaomi.dtsi"
 #include <dt-bindings/leds/common.h>
 
 / {

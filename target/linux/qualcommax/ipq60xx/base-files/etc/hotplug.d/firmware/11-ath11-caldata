@@ -18,7 +18,7 @@ case "$FIRMWARE" in
 	cmiot,ax18|\
 	glinet,gl-ax1800|\
 	glinet,gl-axt1800|\
-	qihoo,v6|\
+	qihoo,360v6|\
 	redmi,ax5|\
 	xiaomi,ax1800|\
 	zn,m2|\
@@ -28,8 +28,8 @@ case "$FIRMWARE" in
 	yuncore,fap650)
 		caldata_extract "0:art" 0x1000 0x20000
 		;;
-	jdcloud,ax6600|\
-	jdcloud,ax1800-pro|\
+	jdcloud,re-cs-02|\
+	jdcloud,re-ss-01|\
 	redmi,ax5-jdcloud)
 		caldata_extract_mmc "0:ART" 0x1000 0x10000
 		;;
@@ -40,7 +40,7 @@ case "$FIRMWARE" in
 	cambiumnetworks,xe3-4)
 		caldata_extract "0:ART" 0x26800 0x20000
 		;;
-	jdcloud,ax6600)
+	jdcloud,re-cs-02)
 		caldata_extract_mmc "0:ART" 0x26800 0x20000
 		;;
 	esac

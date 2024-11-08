@@ -10,8 +10,8 @@
 #include <dt-bindings/input/input.h>
 
 / {
-	model = "JDCloud AX6600";
-	compatible = "jdcloud,ax6600", "qcom,ipq6018";
+	model = "JDCloud RE-CS-02";
+	compatible = "jdcloud,re-cs-02", "qcom,ipq6018-cp03", "qcom,ipq6018";
 
 	aliases {
 		serial0 = &blsp1_uart3;
@@ -191,7 +191,7 @@
 		wifi@1,0 {
 			status = "okay";
 			compatible = "pci17cb,1104";
-			qcom,ath11k-calibration-variant = "JDC-AX1800-Pro";
+			qcom,ath11k-calibration-variant = "JDC-AX6600";
 			reg = <0x00010000 0 0 0 0>;
 		};
 	};
@@ -327,7 +327,7 @@
 
 &wifi {
 	status = "okay";
-	qcom,ath11k-calibration-variant = "JDC-AX1800-Pro";
+	qcom,ath11k-calibration-variant = "JDC-AX6600";
 	qcom,ath11k-fw-memory-mode = <1>;
 };
 

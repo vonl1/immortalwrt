@@ -91,18 +91,18 @@ define Device/glinet_gl-axt1800
 endef
 TARGET_DEVICES += glinet_gl-axt1800
 
-define Device/qihoo_v6
+define Device/qihoo_360v6
 	$(call Device/FitImage)
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := Qihoo
-	DEVICE_MODEL := V6
+	DEVICE_MODEL := 360V6
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 	SOC := ipq6018
 	DEVICE_DTS_CONFIG := config@cp03-c1
-	DEVICE_PACKAGES := ipq-wifi-qihoo_v6
+	DEVICE_PACKAGES := ipq-wifi-qihoo_360v6
 endef
-TARGET_DEVICES += qihoo_v6
+TARGET_DEVICES += qihoo_360v6
 
 define Device/redmi_ax5
 	$(call Device/FitImage)
@@ -152,38 +152,35 @@ define Device/redmi_ax5-jdcloud
 	KERNEL_SIZE := 6144k
 	SOC := ipq6018
 	DEVICE_DTS_CONFIG := config@cp03-c1
-	DEVICE_DTS := ipq6018-ax5-jdcloud
 	DEVICE_PACKAGES := ipq-wifi-redmi_ax5-jdcloud
 	IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-rootfs | append-metadata
 endef
 TARGET_DEVICES += redmi_ax5-jdcloud
 
-define Device/jdcloud_ax1800-pro
+define Device/jdcloud_re-ss-01
 	$(call Device/FitImage)
 	$(call Device/EmmcImage)
 	DEVICE_VENDOR := JDCloud
-	DEVICE_MODEL := AX1800 Pro
+	DEVICE_MODEL := RE-SS-01
 	BLOCKSIZE := 128k
 	KERNEL_SIZE := 6144k
 	SOC := ipq6018
 	DEVICE_DTS_CONFIG := config@cp03-c2
-	DEVICE_DTS := ipq6018-jdcloud-ax1800-pro
-	DEVICE_PACKAGES := ipq-wifi-jdcloud_ax1800-pro
+	DEVICE_PACKAGES := ipq-wifi-jdcloud_re-ss-01
 	IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-rootfs | append-metadata
 endef
-TARGET_DEVICES += jdcloud_ax1800-pro
+TARGET_DEVICES += jdcloud_re-ss-01
 
-define Device/jdcloud_ax6600
+define Device/jdcloud_re-cs-02
 	$(call Device/FitImage)
 	$(call Device/EmmcImage)
 	DEVICE_VENDOR := JDCloud
-	DEVICE_MODEL := AX6600
+	DEVICE_MODEL := RE-CS-02
 	BLOCKSIZE := 128k
 	KERNEL_SIZE := 6144k
 	SOC := ipq6018
 	DEVICE_DTS_CONFIG := config@cp03-c3
-	DEVICE_DTS := ipq6018-jdcloud-ax6600
-	DEVICE_PACKAGES := ipq-wifi-jdcloud_ax6600 ath11k-firmware-qcn9074 kmod-ath11k-pci luci-app-athena-led
+	DEVICE_PACKAGES := ipq-wifi-jdcloud_re-cs-02 ath11k-firmware-qcn9074 kmod-ath11k-pci luci-app-athena-led luci-i18n-athena-led-zh-cn
 	IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-rootfs | append-metadata
 endef
-TARGET_DEVICES += jdcloud_ax6600
+TARGET_DEVICES += jdcloud_re-cs-02

@@ -6,13 +6,13 @@
 
 / {
 	model = "CMIOT AX18";
-	compatible = "cmiot,ax18", "qcom,ipq6018";
+	compatible = "cmiot,ax18", "qcom,ipq6018-cp03", "qcom,ipq6018";
 
 	aliases {
- 		led-boot = &led_power;
- 		led-failsafe = &led_power;
- 		led-running = &led_power;
- 		led-upgrade = &led_power;
+		led-boot = &led_power;
+		led-failsafe = &led_power;
+		led-running = &led_power;
+		led-upgrade = &led_power;
 	};
 
 	leds {

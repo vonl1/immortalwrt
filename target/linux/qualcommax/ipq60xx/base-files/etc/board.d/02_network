@@ -22,13 +22,13 @@ ipq60xx_setup_interfaces()
 		ucidef_set_interfaces_lan_wan "lan"
 		;;
 	glinet,gl-ax1800|\
-	jdcloud,ax6600|\
+	jdcloud,re-cs-02|\
 	yuncore,fap650)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" "wan"
 		;;
 	cmiot,ax18|\
-	jdcloud,ax1800-pro|\
-	qihoo,v6|\
+	jdcloud,re-ss-01|\
+	qihoo,360v6|\
 	redmi,ax5|\
 	redmi,ax5-jdcloud|\
 	xiaomi,ax1800|\
@@ -49,7 +49,7 @@ ipq60xx_setup_macs()
 	local label_mac=""
 
 	case "$board" in
-	qihoo,v6)
+	qihoo,360v6)
 		lan_mac=$(mtd_get_mac_ascii factory lanMac)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		;;

@@ -30,7 +30,7 @@
 		ethernet1 = &dp2;
 		ethernet2 = &dp3;
 		label-mac-device = &dp1;
-        serial0 = &blsp1_uart3;
+		serial0 = &blsp1_uart3;
 		led-boot = &led_system_white;
 		led-failsafe = &led_system_white;
 		led-running = &led_system_white;
@@ -43,37 +43,37 @@
 	};
 
 
-    keys {
-        compatible = "gpio-keys";
+	keys {
+		compatible = "gpio-keys";
 
-        reset {
-            label = "reset";
-            gpios = <&tlmm 18 GPIO_ACTIVE_LOW>;
-            linux,code = <KEY_RESTART>;
-        };
+		reset {
+			label = "reset";
+			gpios = <&tlmm 18 GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_RESTART>;
+		};
 
-        switch {
-            label = "switch";
-            gpios = <&tlmm 9 GPIO_ACTIVE_HIGH>;
+		switch {
+			label = "switch";
+			gpios = <&tlmm 9 GPIO_ACTIVE_HIGH>;
 			linux,code = <KEY_WPS_BUTTON>;
 		};
-    };
+	};
 
-    leds {
-        compatible = "gpio-leds";
+	leds {
+		compatible = "gpio-leds";
 
-        led_system_white: system-white {
-            label = "white:system";
-            gpios = <&tlmm 35 GPIO_ACTIVE_HIGH>;
-            color = <LED_COLOR_ID_WHITE>;
-        };
+		led_system_white: system-white {
+			label = "white:system";
+			gpios = <&tlmm 35 GPIO_ACTIVE_HIGH>;
+			color = <LED_COLOR_ID_WHITE>;
+		};
 
-        led_system_blue: system-blue {
-            label = "blue:system";
-            gpios = <&tlmm 37 GPIO_ACTIVE_HIGH>;
-            color = <LED_COLOR_ID_BLUE>;
-        };
-    };
+		led_system_blue: system-blue {
+			label = "blue:system";
+			gpios = <&tlmm 37 GPIO_ACTIVE_HIGH>;
+			color = <LED_COLOR_ID_BLUE>;
+		};
+	};
 };
 
 &tlmm {
@@ -271,7 +271,7 @@
 	switch_lan_bmp = <(ESS_PORT2|ESS_PORT3)>; /* lan port bitmap */
 	switch_wan_bmp = <ESS_PORT1>; /* wan port bitmap */
 	switch_mac_mode = <MAC_MODE_PSGMII>;
-	
+
 	qcom,port_phyinfo {
 		port@0 {
 			port_id = <1>;
@@ -320,7 +320,7 @@
 		nand-ecc-step-size = <512>;
 		nand-bus-width = <8>;
 
-        partitions {
+		partitions {
 			compatible = "qcom,smem-part";
 		};
 	};

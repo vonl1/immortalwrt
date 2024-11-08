@@ -18,8 +18,8 @@ zn,m2)
 	ucidef_set_led_netdev "lan" "LAN" "m2:blue:lan" "br-lan"
 	;;
 redmi,ax5-jdcloud|\
-jdcloud,ax1800-pro|\
-jdcloud,ax6600)
+jdcloud,re-ss-01|\
+jdcloud,re-cs-02)
 	ucidef_set_led_netdev "wan" "WAN" "green:wan" "wan" "link"
 	;;
 yuncore,fap650)

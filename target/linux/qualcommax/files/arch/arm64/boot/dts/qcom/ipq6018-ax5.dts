@@ -6,7 +6,7 @@
 
 / {
 	model = "Redmi AX5";
-	compatible = "redmi,ax5", "qcom,ipq6018";
+	compatible = "redmi,ax5", "qcom,ipq6018-cp03", "qcom,ipq6018";
 };
 
 &wifi {

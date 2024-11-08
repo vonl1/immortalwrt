@@ -69,9 +69,9 @@ ALLWIFIBOARDS:= \
 	cmiot_ax18 \
 	glinet_gl-ax1800 \
 	glinet_gl-axt1800 \
-	jdcloud_ax1800-pro \
-	jdcloud_ax6600 \
-	qihoo_v6 \
+	jdcloud_re-ss-01 \
+	jdcloud_re-cs-02 \
+	qihoo_360v6 \
 	redmi_ax5 \
 	redmi_ax5-jdcloud \
 	xiaomi_ax1800 \
@@ -207,9 +207,9 @@ $(eval $(call generate-ipq-wifi-package,zyxel_nbg7815,Zyxel NBG7815))
 $(eval $(call generate-ipq-wifi-package,cmiot_ax18,CMIOT AX18))
 $(eval $(call generate-ipq-wifi-package,glinet_gl-ax1800,GL.iNet GL-AX1800))
 $(eval $(call generate-ipq-wifi-package,glinet_gl-axt1800,GL.iNet GL-AXT1800))
-$(eval $(call generate-ipq-wifi-package,jdcloud_ax1800-pro,JDCloud AX1800 Pro))
-$(eval $(call generate-ipq-wifi-package,jdcloud_ax6600,JDCloud AX6600))
-$(eval $(call generate-ipq-wifi-package,qihoo_v6,Qihoo V6))
+$(eval $(call generate-ipq-wifi-package,jdcloud_re-ss-01,JDCloud RE-SS-01))
+$(eval $(call generate-ipq-wifi-package,jdcloud_re-cs-02,JDCloud RE-CS-02))
+$(eval $(call generate-ipq-wifi-package,qihoo_360v6,Qihoo 360V6))
 $(eval $(call generate-ipq-wifi-package,redmi_ax5,Redmi AX5))
 $(eval $(call generate-ipq-wifi-package,redmi_ax5-jdcloud,Redmi AX5 JDCloud))
 $(eval $(call generate-ipq-wifi-package,xiaomi_ax1800,Xiaomi AX1800))
