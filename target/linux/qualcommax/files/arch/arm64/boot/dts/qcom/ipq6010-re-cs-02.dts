@@ -48,6 +48,12 @@
 			linux,code = <KEY_RESTART>;
 			gpios = <&tlmm 56 GPIO_ACTIVE_LOW>;
 		};
+
+		screen {
+			label = "screen";
+			linux,code = <BTN_1>;
+			gpios = <&tlmm 71 GPIO_ACTIVE_LOW>;
+		};
 	};
 
 	leds {
@@ -105,6 +111,15 @@
 			function = "mdio";
 			drive-strength = <8>;
 			bias-pull-up;
+		};
+	};
+
+	usb_pwr_pins: usb-pwr-pins {
+		mux {
+			pins = "gpio22";
+			function = "gpio";
+			bias-pull-down;
+			output-high;
 		};
 	};
 
@@ -191,7 +206,8 @@
 		wifi@1,0 {
 			status = "okay";
 			compatible = "pci17cb,1104";
-			qcom,ath11k-calibration-variant = "JDC-AX6600";
+			qcom,ath11k-fw-memory-mode = <1>;
+			qcom,ath11k-calibration-variant = "JDC-AX1800-Pro";
 			reg = <0x00010000 0 0 0 0>;
 		};
 	};
@@ -207,6 +223,7 @@
 
 &sdhc_1 {
 	bus-width = <8>;
+	/delete-property/ mmc-hs400-1_8v;
 	mmc-ddr-1_8v;
 	mmc-hs200-1_8v;
 	non-removable;
@@ -218,6 +235,8 @@
 };
 
 &usb3 {
+	pinctrl-0 = <&usb_pwr_pins>;
+	pinctrl-names = "default";
 	status = "okay";
 };
 
@@ -327,8 +346,8 @@
 
 &wifi {
 	status = "okay";
-	qcom,ath11k-calibration-variant = "JDC-AX6600";
 	qcom,ath11k-fw-memory-mode = <1>;
+	qcom,ath11k-calibration-variant = "JDC-AX1800-Pro";
 };
 
 &CPU0 {

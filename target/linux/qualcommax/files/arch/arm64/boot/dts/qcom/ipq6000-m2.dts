@@ -2,7 +2,7 @@
 
 /dts-v1/;
 
-#include "ipq6018-cmiot.dtsi"
+#include "ipq6000-cmiot.dtsi"
 
 / {
 	model = "ZN M2";

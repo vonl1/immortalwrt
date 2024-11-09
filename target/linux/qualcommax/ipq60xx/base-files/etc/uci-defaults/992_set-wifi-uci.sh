@@ -39,9 +39,9 @@ dual_band_wifi_cfg() {
 }
 
 tri_band_wifi_cfg() {
-	configure_wifi 0 149 HE80 20 "${BASE_SSID}-5.8G" '12345678'
-	configure_wifi 1 1 HE20 20 "${BASE_SSID}-2.4G" '12345678'
-	configure_wifi 2 44 HE160 23 "${BASE_SSID}-5.2G" '12345678'
+	configure_wifi 0 149 HE80 24 "${BASE_SSID}-5.8G" '12345678'
+	configure_wifi 1 1 HE20 24 "${BASE_SSID}-2.4G" '12345678'
+	configure_wifi 2 44 HE160 24 "${BASE_SSID}-5.2G" '12345678'
 }
 
 case "${board_name}" in

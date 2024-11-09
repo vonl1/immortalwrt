@@ -129,7 +129,6 @@
 	};
 };
 
-
 &blsp1_uart3 {
 	pinctrl-0 = <&serial_3_pins>;
 	pinctrl-names = "default";
@@ -176,7 +175,6 @@
 &qusb_phy_1 {
 	status = "okay";
 };
-
 
 &ssphy_0 {
 	status = "okay";
@@ -270,10 +268,9 @@
 
 &wifi {
 	status = "okay";
-	qcom,ath11k-calibration-variant = "JDC-AX1800-Pro";
 	qcom,ath11k-fw-memory-mode = <1>;
+	qcom,ath11k-calibration-variant = "JDC-AX1800-Pro";
 };
-
 
 &dp2 {
 	phy-handle = <&qca8075_1>;

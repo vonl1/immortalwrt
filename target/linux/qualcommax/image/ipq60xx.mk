@@ -45,7 +45,7 @@ define Device/yuncore_fap650
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 	DEVICE_DTS_CONFIG := config@cp03-c1
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_PACKAGES := ipq-wifi-yuncore_fap650
 	IMAGES := factory.ubi factory.ubin sysupgrade.bin
 	IMAGE/factory.ubin := append-ubi | qsdk-ipq-factory-nand
@@ -59,7 +59,7 @@ define Device/cmiot_ax18
 	DEVICE_MODEL := AX18
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	DEVICE_PACKAGES := ipq-wifi-cmiot_ax18
 endef
@@ -72,7 +72,7 @@ define Device/glinet_gl-ax1800
 	DEVICE_MODEL := GL-AX1800
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	DEVICE_PACKAGES := ipq-wifi-glinet_gl-ax1800
 endef
@@ -85,7 +85,7 @@ define Device/glinet_gl-axt1800
 	DEVICE_MODEL := GL-AXT1800
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	DEVICE_PACKAGES := ipq-wifi-glinet_gl-axt1800
 endef
@@ -98,7 +98,7 @@ define Device/qihoo_360v6
 	DEVICE_MODEL := 360V6
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	DEVICE_PACKAGES := ipq-wifi-qihoo_360v6
 endef
@@ -111,7 +111,7 @@ define Device/redmi_ax5
 	DEVICE_MODEL := AX5
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	DEVICE_PACKAGES := ipq-wifi-redmi_ax5
 endef
@@ -124,7 +124,7 @@ define Device/xiaomi_ax1800
 	DEVICE_MODEL := AX1800
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	DEVICE_PACKAGES := ipq-wifi-xiaomi_ax1800
 endef
@@ -137,7 +137,7 @@ define Device/zn_m2
 	DEVICE_MODEL := M2
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	DEVICE_PACKAGES := ipq-wifi-zn_m2
 endef
@@ -150,7 +150,7 @@ define Device/redmi_ax5-jdcloud
 	DEVICE_MODEL := AX5 JDCloud
 	BLOCKSIZE := 128k
 	KERNEL_SIZE := 6144k
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	DEVICE_PACKAGES := ipq-wifi-redmi_ax5-jdcloud
 	IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-rootfs | append-metadata
@@ -164,7 +164,7 @@ define Device/jdcloud_re-ss-01
 	DEVICE_MODEL := RE-SS-01
 	BLOCKSIZE := 128k
 	KERNEL_SIZE := 6144k
-	SOC := ipq6018
+	SOC := ipq6000
 	DEVICE_DTS_CONFIG := config@cp03-c2
 	DEVICE_PACKAGES := ipq-wifi-jdcloud_re-ss-01
 	IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-rootfs | append-metadata
@@ -178,7 +178,7 @@ define Device/jdcloud_re-cs-02
 	DEVICE_MODEL := RE-CS-02
 	BLOCKSIZE := 128k
 	KERNEL_SIZE := 6144k
-	SOC := ipq6018
+	SOC := ipq6010
 	DEVICE_DTS_CONFIG := config@cp03-c3
 	DEVICE_PACKAGES := ipq-wifi-jdcloud_re-cs-02 ath11k-firmware-qcn9074 kmod-ath11k-pci luci-app-athena-led luci-i18n-athena-led-zh-cn
 	IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-rootfs | append-metadata

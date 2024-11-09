@@ -15,7 +15,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include "ipq6018-glinet.dtsi"
+#include "ipq6000-glinet.dtsi"
 
 / {
 	model = "GL Technologies, Inc. AXT1800";
@@ -41,7 +41,6 @@
 		regulator-always-on;
 	};
 };
-
 
 &tlmm {
 
