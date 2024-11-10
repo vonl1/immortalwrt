@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: GPL-2.0-only
-
 #include "ipq6018.dtsi"
 
 &rpm_msg_ram {

@@ -1,13 +1,10 @@
-// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-
-/dts-v1/;
-
 #include "ipq6018.dtsi"
 #include "ipq6018-ess.dtsi"
 #include "ipq6018-nss.dtsi"
 
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
+#include <dt-bindings/leds/common.h>
 
 / {
 	model = "JDCloud RE-CS-02";
@@ -16,16 +13,16 @@
 	aliases {
 		serial0 = &blsp1_uart3;
 		serial1 = &blsp1_uart6;
-		led-boot = &led_status_green;
+		led-boot = &led_status_blue;
 		led-failsafe = &led_status_red;
-		led-running = &led_status_blue;
+		led-running = &led_status_green;
 		led-upgrade = &led_status_red;
 
-		ethernet0 = "/soc/dp1";
-		ethernet1 = "/soc/dp2";
-		ethernet2 = "/soc/dp3";
-		ethernet3 = "/soc/dp4";
-		ethernet4 = "/soc/dp5";
+		ethernet0 = &dp1;
+		ethernet1 = &dp2;
+		ethernet2 = &dp3;
+		ethernet3 = &dp4;
+		ethernet4 = &dp5;
 	};
 
 	chosen {
@@ -58,20 +55,22 @@
 
 	leds {
 		compatible = "gpio-leds";
+		pinctrl-0 = <&leds_pins>;
+		pinctrl-names = "default";
 
 		led_status_red: red {
 			label = "red:status";
 			gpios = <&tlmm 57 GPIO_ACTIVE_HIGH>;
 		};
 
-		led_status_blue: blue {
-			label = "blue:status";
-			gpios = <&tlmm 79 GPIO_ACTIVE_HIGH>;
-		};
-
 		led_status_green: green {
 			label = "green:status";
 			gpios = <&tlmm 58 GPIO_ACTIVE_HIGH>;
+		};
+
+		led_status_blue: blue {
+			label = "blue:status";
+			gpios = <&tlmm 79 GPIO_ACTIVE_HIGH>;
 		};
 	};
 };
@@ -80,7 +79,7 @@
 	gpio-reserved-ranges = <20 1>;
 	compatible = "qcom,ipq6018-pinctrl";
 
-	button_pins: button_pins {
+	button_pins: button-pins {
 		mux {
 			pins = "gpio56", "gpio71", "gpio72";
 			function = "gpio";
@@ -95,6 +94,15 @@
 			function = "blsp5_uart";
 			drive-strength = <8>;
 			bias-pull-up;
+		};
+	};
+
+	leds_pins: leds-pins {
+		mux {
+			pins = "gpio57", "gpio58", "gpio79";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-down;
 		};
 	};
 
@@ -123,44 +131,7 @@
 		};
 	};
 
-	button_pins: button_pins {
-		joylink_button {
-			pins = "gpio72";
-			function = "gpio";
-			drive-strength = <8>;
-			bias-pull-down;
-		};
-
-		reset_button {
-			pins = "gpio56";
-			function = "gpio";
-			drive-strength = <8>;
-			bias-pull-down;
-		};
-
-		screen_button {
-			pins = "gpio71";
-			function = "gpio";
-			drive-strength = <8>;
-			bias-pull-down;
-		};
-	};
-
-	tmp1628_pins: tmp1628_pins {
-		dio {
-			pins = "gpio74";
-			function = "gpio";
-			drive-strength = <8>;
-			bias-pull-down;
-		};
-
-		clk {
-			pins = "gpio73";
-			function = "gpio";
-			drive-strength = <8>;
-			bias-pull-down;
-		};
-
+	tmp1628_pins: tmp1628-pins {
 		stb1 {
 			pins = "gpio69";
 			function = "gpio";
@@ -174,23 +145,43 @@
 			drive-strength = <8>;
 			bias-pull-down;
 		};
+
+		clk {
+			pins = "gpio73";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-down;
+		};
+
+		dio {
+			pins = "gpio74";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-down;
+		};
 	};
 };
 
 &blsp1_uart3 {
+	status = "okay";
+
 	pinctrl-0 = <&serial_3_pins>;
 	pinctrl-names = "default";
-	status = "okay";
 };
 
 &blsp1_uart6 {
+	status = "okay";
+
 	pinctrl-0 = <&btuart_pins>;
 	pinctrl-names = "default";
-	status = "okay";
 };
 
-&pcie_phy {
+&sdhc_1 {
 	status = "okay";
+
+	/delete-property/ mmc-hs400-1_8v;
+	mmc-ddr-1_8v;
+	mmc-hs200-1_8v;
 };
 
 &pcie0 {
@@ -211,33 +202,6 @@
 			reg = <0x00010000 0 0 0 0>;
 		};
 	};
-};
-
-&qusb_phy_0 {
-	status = "okay";
-};
-
-&rpm {
-	status = "disabled";
-};
-
-&sdhc_1 {
-	bus-width = <8>;
-	/delete-property/ mmc-hs400-1_8v;
-	mmc-ddr-1_8v;
-	mmc-hs200-1_8v;
-	non-removable;
-	status = "okay";
-};
-
-&ssphy_0 {
-	status = "okay";
-};
-
-&usb3 {
-	pinctrl-0 = <&usb_pwr_pins>;
-	pinctrl-names = "default";
-	status = "okay";
 };
 
 &mdio {
@@ -277,13 +241,13 @@
 &switch {
 	status = "okay";
 
-	switch_cpu_bmp = <0x1>;  /* cpu port bitmap */
-	switch_lan_bmp = <0x1e>; /* lan port bitmap */
-	switch_wan_bmp = <0x20>; /* wan port bitmap */
-	switch_inner_bmp = <0xc0>; /*inner port bitmap*/
-	switch_mac_mode = <0x0>; /* mac mode for uniphy 0*/
-	switch_mac_mode1 = <0xf>; /* mac mode for uniphy 1*/
-	switch_mac_mode2 = <0xff>; /* mac mode for uniphy 2*/
+	switch_cpu_bmp = <0x01>;
+	switch_lan_bmp = <0x1e>;
+	switch_wan_bmp = <0x20>;
+	switch_inner_bmp = <0xc0>;
+	switch_mac_mode = <0x00>;
+	switch_mac_mode1 = <0x0f>;
+	switch_mac_mode2 = <0xff>;
 
 	qcom,port_phyinfo {
 		port@1 {
@@ -310,8 +274,10 @@
 	};
 };
 
-&edma {
+&wifi {
 	status = "okay";
+	qcom,ath11k-fw-memory-mode = <1>;
+	qcom,ath11k-calibration-variant = "JDC-AX1800-Pro";
 };
 
 &dp1 {
@@ -344,10 +310,30 @@
 	label = "wan";
 };
 
-&wifi {
+&usb3 {
+	pinctrl-0 = <&usb_pwr_pins>;
+	pinctrl-names = "default";
 	status = "okay";
-	qcom,ath11k-fw-memory-mode = <1>;
-	qcom,ath11k-calibration-variant = "JDC-AX1800-Pro";
+};
+
+&rpm {
+	status = "disabled";
+};
+
+&edma {
+	status = "okay";
+};
+
+&pcie_phy {
+	status = "okay";
+};
+
+&qusb_phy_0 {
+	status = "okay";
+};
+
+&ssphy_0 {
+	status = "okay";
 };
 
 &CPU0 {

@@ -1,8 +1,3 @@
-// SPDX-License-Identifier: MIT, GPL-2.0 or later
-/* Copyright (c) 2023, Ruslan Isaev <legale.legale@gmail.com> */
-
-/dts-v1/;
-
 #include "ipq6018.dtsi"
 #include "ipq6018-512m.dtsi"
 #include "ipq6018-ess.dtsi"
@@ -32,7 +27,7 @@
 
 	chosen {
 		stdout-path = "serial0:115200n8";
-		bootargs-append = " root=/dev/ubiblock0_1";
+		bootargs-append = "root=/dev/ubiblock0_1";
 	};
 
 	keys {

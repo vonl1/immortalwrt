@@ -1,14 +1,11 @@
-// SPDX-License-Identifier: (GPL-2.0+)
-
-/dts-v1/;
-
 #include "ipq6018.dtsi"
 #include "ipq6018-512m.dtsi"
 #include "ipq6018-ess.dtsi"
 #include "ipq6018-nss.dtsi"
 
-#include <dt-bindings/input/input.h>
 #include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/leds/common.h>
 
 / {
 	model = "Qihoo 360V6";
@@ -24,7 +21,7 @@
 	};
 
 	chosen {
-		bootargs-append = " root=/dev/ubiblock0_1";
+		bootargs-append = "root=/dev/ubiblock0_1";
 	};
 
 	leds {

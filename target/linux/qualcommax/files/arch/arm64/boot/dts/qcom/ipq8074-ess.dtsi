@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: GPL-2.0-only
-
 #include <dt-bindings/net/qcom-ipq-ess.h>
 
 &clocks {

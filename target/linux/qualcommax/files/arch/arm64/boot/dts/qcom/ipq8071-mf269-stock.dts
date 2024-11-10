@@ -1,6 +1,3 @@
-// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-
-/dts-v1/;
 #include "ipq8071-mf269.dts"
 
 / {
@@ -12,7 +9,7 @@
 	};
 
 	chosen {
-		bootargs-append = " root=/dev/ubiblock0_1";
+		bootargs-append = "root=/dev/ubiblock0_1";
 	};
 };
 

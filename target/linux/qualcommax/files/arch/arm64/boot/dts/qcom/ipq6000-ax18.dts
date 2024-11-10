@@ -1,7 +1,3 @@
-// SPDX-License-Identifier: (GPL-2.0+)
-
-/dts-v1/;
-
 #include "ipq6000-cmiot.dtsi"
 
 / {
@@ -50,8 +46,7 @@
 &tlmm {
 	leds_pins: leds_pins {
 		mux_0 {
-			pins = "gpio35", "gpio37",
-				"gpio69", "gpio74";
+			pins = "gpio35", "gpio37", "gpio69", "gpio74";
 			function = "gpio";
 			drive-strength = <8>;
 			bias-pull-down;
