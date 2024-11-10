@@ -61,6 +61,7 @@ platform_do_upgrade() {
 		;;
 	jdcloud,re-ss-01|\
 	jdcloud,re-cs-02|\
+	jdcloud,re-cs-07|\
 	redmi,ax5-jdcloud)
 		kernelname="0:HLOS"
 		rootfsname="rootfs"

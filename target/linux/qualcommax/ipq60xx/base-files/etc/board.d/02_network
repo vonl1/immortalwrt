@@ -28,6 +28,7 @@ ipq60xx_setup_interfaces()
 		;;
 	cmiot,ax18|\
 	jdcloud,re-ss-01|\
+	jdcloud,re-cs-07|\
 	qihoo,360v6|\
 	redmi,ax5|\
 	redmi,ax5-jdcloud|\
