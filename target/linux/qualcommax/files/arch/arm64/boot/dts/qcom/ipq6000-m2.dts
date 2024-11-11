@@ -51,7 +51,7 @@
 };
 
 &tlmm {
-	leds_pins: leds_pins {
+	leds_pins: leds-pins {
 		mux {
 			pins = "gpio35", "gpio37", "gpio58", "gpio70", "gpio73", "gpio74";
 			function = "gpio";
