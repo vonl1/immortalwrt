@@ -14,8 +14,8 @@
 		/* Aliases as required by u-boot to patch MAC addresses */
 		ethernet0 = &dp1;
 		ethernet1 = &dp2;
+		ethernet2 = &dp3;
 		ethernet3 = &dp4;
-		ethernet4 = &dp5;
 	};
 
 	chosen {
@@ -62,7 +62,7 @@
 		};
 	};
 
-	button_pins: button_pins {
+	button_pins: button-pins {
 		wps_button {
 			pins = "gpio9";
 			function = "gpio";
@@ -91,15 +91,15 @@
 	label = "lan2";
 };
 
-&dp4 {
+&dp3 {
 	status = "okay";
-	phy-handle = <&qca8075_3>;
+	phy-handle = <&qca8075_2>;
 	label = "lan1";
 };
 
-&dp5 {
+&dp4 {
 	status = "okay";
-	phy-handle = <&qca8075_4>;
+	phy-handle = <&qca8075_3>;
 	label = "wan";
 };
 
@@ -113,12 +113,17 @@
 	pinctrl-names = "default";
 	reset-gpios = <&tlmm 75 GPIO_ACTIVE_LOW>;
 
-	qca8075_0: ethernet-phy@1 {
+	qca8075_0: ethernet-phy@0 {
+		compatible = "ethernet-phy-ieee802.3-c22";
+		reg = <4>;
+	};
+
+	qca8075_1: ethernet-phy@1 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <0>;
 	};
 
-	qca8075_1: ethernet-phy@2 {
+	qca8075_2: ethernet-phy@2 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <1>;
 	};
@@ -126,11 +131,6 @@
 	qca8075_3: ethernet-phy@3 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <3>;
-	};
-
-	qca8075_4: ethernet-phy@0 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <4>;
 	};
 };
 
@@ -148,14 +148,17 @@
 			port_id = <1>;
 			phy_address = <0>;
 		};
+
 		port@1 {
 			port_id = <2>;
 			phy_address = <1>;
 		};
+
 		port@2 {
 			port_id = <4>;
 			phy_address = <3>;
 		};
+
 		port@3 {
 			port_id = <5>;
 			phy_address = <4>;
