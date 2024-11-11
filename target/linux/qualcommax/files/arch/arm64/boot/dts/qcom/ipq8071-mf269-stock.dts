@@ -1,3 +1,5 @@
+/dts-v1/;
+
 #include "ipq8071-mf269.dts"
 
 / {
