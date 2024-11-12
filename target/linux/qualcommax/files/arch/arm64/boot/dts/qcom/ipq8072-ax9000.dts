@@ -315,13 +315,13 @@
 			};
 
 			partition@1180000 {
-				label = "ubi_kernel";
-				reg = <0x1180000 0x3800000>;
+				label = "rootfs";
+				reg = <0x1180000 0xe800000>;
 			};
 
-			partition@4980000 {
+			partition@f980000 {
 				label = "rootfs";
-				reg = <0x4980000 0xb680000>;
+				reg = <0xf980000 0x80000>;
 			};
 		};
 	};
