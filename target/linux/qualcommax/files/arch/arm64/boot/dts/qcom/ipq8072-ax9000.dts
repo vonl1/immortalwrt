@@ -320,7 +320,7 @@
 			};
 
 			partition@f980000 {
-				label = "rootfs";
+				label = "cfg_bak";
 				reg = <0xf980000 0x80000>;
 			};
 		};
